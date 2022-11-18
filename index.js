@@ -8,7 +8,7 @@ import ProductRoute from './routes/ProductRoute.js'
 
 const app = express()
 
-app.use(cors({origin: 'http://localhost:3000'}))
+app.use(cors({origin: '*',credentials: true}))
 app.use(express.json())
 
 app.use(ProductRoute)
