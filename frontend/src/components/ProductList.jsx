@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import useSWR, {useSWRConfig} from 'swr'
+import {toast} from 'react-toastify'
 
 const ProductList = () => {
     const {mutate} = useSWRConfig()
@@ -15,6 +16,16 @@ const ProductList = () => {
 
     const deleteProduct = async (productId) => {
         await axios.delete(`http://localhost:5000/products/${productId}`)
+        .then(res=> {
+            console.log(res.status)
+            if(res.status==200){
+                
+                toast.warn("Product Deleted !", {
+                    position: toast.POSITION.TOP_RIGHT
+                  });
+            }
+
+        })
         mutate('products')
     }
   return (

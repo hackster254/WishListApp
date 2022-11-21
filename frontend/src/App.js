@@ -2,6 +2,8 @@ import ProductList from "./components/ProductList";
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import AddProduct from "./components/AddProduct";
 import EditProduct from "./components/EditProduct";
+import {ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <div className="container">
@@ -12,6 +14,7 @@ function App() {
         <Route path="/edit/:id" element={<EditProduct />} />
       </Routes>
       </BrowserRouter>
+      <ToastContainer />
       
       
     
